@@ -7,7 +7,7 @@ import requests
 from sentence_transformers import SentenceTransformer
  
 # Initialize OpenAI API key
-os.environ["OPENAI_API_KEY"] = "REMOVED_OPENAI_KEY"  # Replace with your OpenAI API key
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
  
 # Initialize SentenceTransformer model for embeddings
@@ -44,7 +44,7 @@ def query_faiss(query, k=3):
  
 # Function to fetch recipes from Spoonacular API
 def fetch_recipes_from_api(query):
-    API_KEY = "REMOVED_SPOONACULAR_API_KEY"  # Replace with your Spoonacular API key
+    API_KEY=  os.getenv("SPOONACULAR_API")# Replace with your Spoonacular API key
     url = f"https://api.spoonacular.com/recipes/complexSearch"
     params = {"query": query, "number": 10, "apiKey": API_KEY}
     response = requests.get(url, params=params)
